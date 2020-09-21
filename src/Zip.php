@@ -625,7 +625,8 @@ class Zip {
                 $new_folder = $this->zip_archive->addEmptyDir($folder_target);
 
                 if ($new_folder === false) {
-                    throw new Exception(self::getStatus($this->zip_archive->status));
+                    // temp fix: an exception is being thrown even if ZipArchive::ER_OK is the status
+                    // throw new Exception(self::getStatus($this->zip_archive->status));
                 }
 
             } else {
